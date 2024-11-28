@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #81989e;
+  overflow: hidden;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#stress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#stress-level {
+  height: 100%;
+  width: 50%;
+  background-color: green;
+  transition: width 0.5s;
+}
+
+#bubble-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.bubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #a2d5f2;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+@keyframes scale-in-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.bubble-animate {
+  animation: scale-in-center 0.3s ease-out forwards;
+}
+@keyframes scale-out-center {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bubble-exploded-animate {
+  animation: scale-out-center 0.3s ease-out forwards;
+}
+
+.bubble.deflated {
+  background-color: #e0e0e0;
+  transform: scale(0.8);
+}
+
+@media screen and (max-width: 768px) {
+
+  .bubble {
+    width: 40px;
+    height: 40px;
+  }
+
+  #stress-bar {
+    width: 100%;
+    height: 10px;
+  }
+}
